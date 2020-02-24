@@ -1,57 +1,14 @@
-/*class Student
-{
-    constructor(name, course, section)
-    {
-        this.name = name;
-        this.course = course;
-        this.section = section;
-    }
+//call function demo
+let stud1 = {name: "Joyce Ann"};
+let stud2 = {name: "Pedro Cruz"};
 
-    enrolled(subject)
-    {
-        console.log(`${this.name} , ${this.course} , is enrolled in ${this.section}`);
-        console.log(`He is studying ${subject}`);
-    }
+let study = function(subject)
+{
+    console.log(`${this.name}, is enrolled in ${this.subject}`);
 }
 
-let stud1 = new Student("Joyce Ann Pestin" , "IT" , "2ITF");
-stud1.enrolled("ICS2609");
-*/
+//stud1.study("Science"); //di pwede kasi yung study function ay di kasama sa object --- it was defined outside the obj
 
-//Prototype - all the objects derived fmvthe same class can actually share
+//functions are objects in javascript
 
-/*let stud1 = {name: "Joyce Ann " , course: "IT" , section: "2ITF" , 
-study:function(subject)
-{
-    console.log(`${this.name}, is enrolled in ${subject}`);
-}};
-
-//calling the study method
-//use the objcect syntx
-
-let stud2 = {name: "Joyce" , course: "CS" , section: "2ITE"}; //di gagana kasi wlang study function
-*/
-
-//Constructor function
-
-function Student(name, course, section)
-{
-    this.name = name;
-    this.course = course;
-    this.section = section;
-}
-
-Student.prototype.study = function(subject)
-{
-    console.log(`${this.name}, is enrolled in ${subject}`);
-}
-
-Student.prototype.school = "UST";
-
-let stud1 = new Student(" Joyce  " , "IT" , "2TF");
-let stud2 = new Student ("Ann " , "CS" , "CSA");
-
-stud1.study("Biology");
-stud2.study("Science");
-
-console.log(stud1.school);
+study.call(stud2, "Science");
