@@ -20,7 +20,7 @@ stud1.enrolled("ICS2609");
 
 //Prototype - all the objects derived fmvthe same class can actually share
 
-let stud1 = {name: "Joyce Ann " , course: "IT" , section: "2ITF" , 
+/*let stud1 = {name: "Joyce Ann " , course: "IT" , section: "2ITF" , 
 study:function(subject)
 {
     console.log(`${this.name}, is enrolled in ${subject}`);
@@ -30,5 +30,28 @@ study:function(subject)
 //use the objcect syntx
 
 let stud2 = {name: "Joyce" , course: "CS" , section: "2ITE"}; //di gagana kasi wlang study function
+*/
 
-stud1.study("ICS2609");
+//Constructor function
+
+function Student(name, course, section)
+{
+    this.name = name;
+    this.course = course;
+    this.section = section;
+}
+
+Student.prototype.study = function(subject)
+{
+    console.log(`${this.name}, is enrolled in ${subject}`);
+}
+
+Student.prototype.school = "UST";
+
+let stud1 = new Student(" Joyce  " , "IT" , "2TF");
+let stud2 = new Student ("Ann " , "CS" , "CSA");
+
+stud1.study("Biology");
+stud2.study("Science");
+
+console.log(stud1.school);
